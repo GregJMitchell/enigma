@@ -1,4 +1,4 @@
-require './lib/key_shift'
+require_relative 'key_shift'
 
 class Encryption
   include KeyShift
