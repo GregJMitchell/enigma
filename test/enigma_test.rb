@@ -20,7 +20,6 @@ class EnigmaTest < Minitest::Test
   end
 
   def test_it_can_decrypt_messages
-    skip
     enigma = Enigma.new
 
     assert_equal 'hello world', enigma.decrypt("keder ohulw", "02715", "040895")
