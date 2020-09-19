@@ -1,4 +1,5 @@
 require_relative 'encryption'
+require_relative 'Decryption'
 
 class Enigma
   def encrypt(message, key = nil, date = nil)
