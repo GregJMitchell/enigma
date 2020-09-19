@@ -21,4 +21,10 @@ class DecryptionTest < Minitest::Test
     assert_equal '0', decryption.key
     assert_equal '0', decryption.date
   end
+
+  def test_it_can_decrypt_messages
+    decryption = Decryption.new("keder ohulw", "02715", "040895")
+
+    assert_equal 'hello world', decryption.decrypt
+  end
 end
