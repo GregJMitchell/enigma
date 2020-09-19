@@ -2,8 +2,11 @@ require './lib/enigma'
 
 file_names = ARGV
 
-require 'pry'; binding.pry
 enigma = Enigma.new
+file = File.open(file_names[0])
+file_data = file.read
 
+encrypted_message = enigma.encrypt(plaintext_message, key, date)
+file.close
 
-enigma.encrypt(plaintext_message, key, date)
+File.write(file_names[1], encrypted_message[:encyrption])
