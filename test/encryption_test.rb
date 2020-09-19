@@ -17,8 +17,8 @@ class EncryptionTest < Minitest::Test
     date = '0'
     encryption = Encryption.new(message, key, date)
 
-    assert_equal '', Encryption.message
-    assert_equal '0', Encryption.key
-    assert_equal '0', Encryption.date
+    assert_equal '', encryption.message
+    assert_equal '0', encryption.key
+    assert_equal '0', encryption.date
   end
 end
