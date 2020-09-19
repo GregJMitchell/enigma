@@ -2,7 +2,7 @@ require_relative 'key_shift'
 
 class Enigma
   include KeyShift
-  def encrypt(message, key, date)
+  def encrypt(message, key = nil, date = nil)
     chars = ('a'..'z').to_a << ' '
     lower_message = message.downcase
     keys = final_keys(key, date)
