@@ -12,6 +12,6 @@ module Generatable
   end
 
   def generate_key
-    rand.to_s[0..4]
+    rand(10000..99999).to_s
   end
 end
