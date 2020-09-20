@@ -35,4 +35,11 @@ class EnigmaTest < Minitest::Test
 
     assert_equal '200920', enigma.generate_date
   end
+
+  def test_it_can_generate_key
+    enigma = mock('mock enigma object')
+    enigma.stubs(:rand).returns('12345')
+
+    assert_equal '12345', enigma.generate_key
+  end
 end
