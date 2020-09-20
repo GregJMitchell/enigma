@@ -6,6 +6,7 @@ class Enigma
   include Generatable
   def encrypt(message, key = nil, date = nil)
     date = generate_date if date.nil?
+    key = generate_key if key.nil?
     encryption = Encryption.new(message, key, date)
     encryption.encrypt
   end
