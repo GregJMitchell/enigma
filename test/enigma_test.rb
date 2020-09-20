@@ -33,6 +33,6 @@ class EnigmaTest < Minitest::Test
   def test_it_can_generate_date
     enigma = Enigma.new
 
-    assert_equal '092020', enigma.generate_date
+    assert_equal '200920', enigma.generate_date
   end
 end
