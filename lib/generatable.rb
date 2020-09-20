@@ -10,4 +10,8 @@ module Generatable
     month = "0#{month}" if month.to_s.length < 2
     "#{day}#{month}#{year}"
   end
+
+  def generate_key
+    rand.to_s[0..4]
+  end
 end
