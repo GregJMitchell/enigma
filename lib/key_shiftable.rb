@@ -1,4 +1,4 @@
-module KeyShift
+module KeyShiftable
   def date_shift(date)
     square_date = date.to_i**2
     date_keys = square_date.to_s[-4..-1]
