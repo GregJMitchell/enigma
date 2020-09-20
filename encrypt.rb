@@ -5,10 +5,10 @@ file_names = ARGV
 enigma = Enigma.new
 file = File.open(file_names[0])
 file_data = file.read
-key = "02715" 
-date = "040895"
 
-encrypted_message = enigma.encrypt(file_data, key, date)
+encrypted_message = enigma.encrypt(file_data)
 file.close
 
 File.open(file_names[1], "w") { |f| f.write "#{encrypted_message[:encryption]}" }
+
+p "Created '#{file_names[1]}' with the key #{encrypted_message[:key]} and date #{encrypted_message[:date]}"
