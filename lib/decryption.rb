@@ -1,7 +1,7 @@
-require_relative 'key_shift'
+require_relative 'key_shiftable'
 
 class Decryption
-  include KeyShift
+  include KeyShiftable
   attr_reader :message, :key, :date
   def initialize(message, key, date)
     @message = message
