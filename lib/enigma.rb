@@ -10,7 +10,8 @@ class Enigma
     encryption.encrypt
   end
 
-  def decrypt(message, key, date)
+  def decrypt(message, key, date = nil)
+    date = generate_date if date.nil?
     decryption = Decryption.new(message, key, date)
     decryption.decrypt
   end
