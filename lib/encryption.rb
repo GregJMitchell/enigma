@@ -20,10 +20,6 @@ class Encryption
       keys.rotate!
       character
     end.join
-    encrypted = {}
-    encrypted[:encryption] = shifted
-    encrypted[:key] = key
-    encrypted[:date] = date
-    encrypted
+    {encryption: shifted, key: @key, date: @date}
   end
 end
