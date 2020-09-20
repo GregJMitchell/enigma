@@ -29,4 +29,10 @@ class EnigmaTest < Minitest::Test
 
     assert_equal expected, enigma.decrypt("keder ohulw", "02715", "040895")
   end
+
+  def test_it_can_generate_date
+    enigma = Enigma.new
+
+    assert_equal '092020', enigma.generate_date
+  end
 end
