@@ -1,5 +1,6 @@
 require './test/test_helper'
 require './lib/enigma'
+require 'date'
 
 class EnigmaTest < Minitest::Test
   def test_it_exists
@@ -32,9 +33,9 @@ class EnigmaTest < Minitest::Test
 
   def test_it_can_generate_date
     enigma = Enigma.new
-    enigma.stubs(:generate_date).returns('200920')
+    expected = Time.now.strftime("%d%m%y")
 
-    assert_equal '200920', enigma.generate_date
+    assert_equal expected, enigma.generate_date
   end
 
   def test_it_can_generate_key
