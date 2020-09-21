@@ -7,17 +7,17 @@ module KeyShiftable
 
   def key_shift(key)
     keys = []
-    keys << a_key = key[0..1].to_i
-    keys << b_key = key[1..2].to_i
-    keys << c_key = key[2..3].to_i
-    keys << d_key = key[3..4].to_i
+    index = 0
+    4.times do
+      keys << key[index..index + 1].to_i
+      index += 1
+    end
     keys
   end
 
   def final_keys(key, date)
     date_keys = date_shift(date)
     keys = key_shift(key)
-    # require 'pry'; binding.pry
     real_keys = []
     index = 0
     4.times do

@@ -24,11 +24,11 @@ class EncryptionTest < Minitest::Test
 
   def test_it_can_encrypt_messages
     expected = {
-      encryption: "keder ohulw",
-      key: "02715",
-      date: "040895"
+      encryption: 'keder ohulw',
+      key: '02715',
+      date: '040895'
     }
-    encryption = Encryption.new("hello world", "02715", "040895")
+    encryption = Encryption.new('hello world', '02715', '040895')
 
     assert_equal expected, encryption.encrypt
   end

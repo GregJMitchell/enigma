@@ -11,27 +11,28 @@ class EnigmaTest < Minitest::Test
   def test_it_can_encrypt_messages
     enigma = Enigma.new
     expected = {
-          encryption: "keder ohulw",
-          key: "02715",
-          date: "040895"
-        }
+      encryption: 'keder ohulw',
+      key: '02715',
+      date: '040895'
+    }
 
-    assert_equal expected, enigma.encrypt("hello world", "02715", "040895")
+    assert_equal expected, enigma.encrypt('hello world', '02715', '040895')
   end
 
   def test_it_can_decrypt_messages
     enigma = Enigma.new
     expected = {
-      decryption: "hello world",
-      key: "02715",
-      date: "040895"
+      decryption: 'hello world',
+      key: '02715',
+      date: '040895'
     }
 
-    assert_equal expected, enigma.decrypt("keder ohulw", "02715", "040895")
+    assert_equal expected, enigma.decrypt('keder ohulw', '02715', '040895')
   end
 
   def test_it_can_generate_date
     enigma = Enigma.new
+    enigma.stubs(:generate_date).returns('200920')
 
     assert_equal '200920', enigma.generate_date
   end
@@ -39,6 +40,7 @@ class EnigmaTest < Minitest::Test
   def test_it_can_generate_key
     enigma = Enigma.new
     enigma.stubs(:rand).returns('12345')
+    enigma.stubs(:generate_date).returns('200920')
 
     assert_equal '12345', enigma.generate_key
   end
@@ -46,24 +48,26 @@ class EnigmaTest < Minitest::Test
   def test_it_can_encrypt_with_no_key_or_date
     enigma = Enigma.new
     enigma.stubs(:rand).returns('12345')
+    enigma.stubs(:generate_date).returns('200920')
     expected = {
-          encryption: "zescf cfilk",
-          key: "12345",
-          date: "200920"
-        }
+      encryption: 'zescf cfilk',
+      key: '12345',
+      date: '200920'
+    }
 
-    assert_equal expected, enigma.encrypt("hello world")
+    assert_equal expected, enigma.encrypt('hello world')
   end
 
   def test_it_can_decrypt_messages_with_no_date
     enigma = Enigma.new
     enigma.stubs(:rand).returns('12345')
+    enigma.stubs(:generate_date).returns('200920')
     expected = {
-      decryption: "hello world",
-      key: "12345",
-      date: "200920"
+      decryption: 'hello world',
+      key: '12345',
+      date: '200920'
     }
 
-    assert_equal expected, enigma.decrypt("zescf cfilk", "12345")
+    assert_equal expected, enigma.decrypt('zescf cfilk', '12345')
   end
 end
