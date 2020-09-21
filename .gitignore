@@ -1,2 +1,6 @@
 # simplecov
 coverage
+
+message.rb
+encrypted.rb
+decrypted.rb
