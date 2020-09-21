@@ -32,6 +32,7 @@ class EnigmaTest < Minitest::Test
 
   def test_it_can_generate_date
     enigma = Enigma.new
+    enigma.stubs(:generate_date).returns('200920')
 
     assert_equal '200920', enigma.generate_date
   end
@@ -39,6 +40,7 @@ class EnigmaTest < Minitest::Test
   def test_it_can_generate_key
     enigma = Enigma.new
     enigma.stubs(:rand).returns('12345')
+    enigma.stubs(:generate_date).returns('200920')
 
     assert_equal '12345', enigma.generate_key
   end
@@ -46,6 +48,7 @@ class EnigmaTest < Minitest::Test
   def test_it_can_encrypt_with_no_key_or_date
     enigma = Enigma.new
     enigma.stubs(:rand).returns('12345')
+    enigma.stubs(:generate_date).returns('200920')
     expected = {
           encryption: "zescf cfilk",
           key: "12345",
@@ -58,6 +61,7 @@ class EnigmaTest < Minitest::Test
   def test_it_can_decrypt_messages_with_no_date
     enigma = Enigma.new
     enigma.stubs(:rand).returns('12345')
+    enigma.stubs(:generate_date).returns('200920')
     expected = {
       decryption: "hello world",
       key: "12345",
