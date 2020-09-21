@@ -1,5 +1,5 @@
 require_relative 'encryption'
-require_relative 'Decryption'
+require_relative 'decryption'
 require_relative 'generatable'
 
 class Enigma
