@@ -6,7 +6,7 @@ enigma = Enigma.new
 file = File.open(file_names[0])
 file_data = file.read
 
-encrypted_message = enigma.encrypt(file_data)
+encrypted_message = enigma.encrypt(file_data, file_names[2], file_names[3])
 file.close
 
 File.open(file_names[1], "w") { |f| f.write "#{encrypted_message[:encryption]}" }
