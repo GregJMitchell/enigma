@@ -16,9 +16,10 @@ class Decryption
       value = (letter.ord - 97 - keys[0]) % 27
       value = (26 - keys[0]) % 27 if letter == ' '
       character = chars[value]
+      character = letter unless chars.include?(letter)
       keys.rotate!
       character
     end.join
-    {decryption: unshifted, key: @key, date: @date}
+    { decryption: unshifted, key: @key, date: @date }
   end
 end
