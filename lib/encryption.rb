@@ -14,7 +14,6 @@ class Encryption
     keys = final_keys(@key, @date)
     shifted = @message.chars.map do |letter|
       value = (letter.ord - 97 + keys[0]) % 27
-      # require 'pry'; binding.pry
       value = (26 + keys[0]) % 27 if letter == ' '
       character = chars[value]
       character = letter unless chars.include?(letter)
